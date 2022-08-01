@@ -98,11 +98,14 @@ After our setup with Vite + the vue-ts template. We still need to add ESLint, Pr
 
 # Other decisions
 
-Design: "simple yet eye-catching"
+Design: "simple yet eye-catching"; something with a purple brand color
 
 - Colors
-  - Primary
-  - Secondary
+  - Primary/brand: #ac58f5
+  - Neutrals:
+    - Darkest: #0f172a
+    - Mid: #64748b
+    - Lightest: #f8fbfe
 - Typography
 
   - Body text

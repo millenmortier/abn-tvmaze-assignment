@@ -1,0 +1,48 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--light-text-color);
+}
+
+h4 {
+  font-size: 1.125rem;
+  color: var(--light-text-color);
+}
+
+h5 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--light-text-color);
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+}

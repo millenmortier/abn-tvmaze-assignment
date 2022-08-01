@@ -1,44 +1,20 @@
-import { ref, onMounted } from 'vue';
 import { GenreOverview } from '../api-clients/abn-tvmaze-proxy/types';
 import abnTvmazeProxy from '../api-clients/abn-tvmaze-proxy';
 import { TvShow } from '../api-clients/tvmaze/types';
+import { useApiCall } from './useApiCall';
 
 export function useGenreOverview() {
-  const isFetching = ref(false);
-  const error = ref(false);
-  const genreOverview = ref<GenreOverview>([]);
+  const { isFetching, error, value } = useApiCall<GenreOverview>(() =>
+    abnTvmazeProxy.getGenreOverview()
+  );
 
-  onMounted(async () => {
-    isFetching.value = true;
-    try {
-      genreOverview.value = await abnTvmazeProxy.getGenreOverview();
-      error.value = false;
-    } catch {
-      error.value = true;
-    } finally {
-      isFetching.value = false;
-    }
-  });
-
-  return { isFetching, error, genreOverview };
+  return { isFetching, error, genreOverview: value };
 }
 
 export function useShowsByRating() {
-  const isFetching = ref(false);
-  const error = ref(false);
-  const shows = ref<TvShow[]>([]);
+  const { isFetching, error, value } = useApiCall<TvShow[]>(() =>
+    abnTvmazeProxy.getShowsByRating()
+  );
 
-  onMounted(async () => {
-    isFetching.value = true;
-    try {
-      shows.value = await abnTvmazeProxy.getShowsByRating();
-      error.value = false;
-    } catch {
-      error.value = true;
-    } finally {
-      isFetching.value = false;
-    }
-  });
-
-  return { isFetching, error, shows };
+  return { isFetching, error, shows: value };
 }

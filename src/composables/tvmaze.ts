@@ -1,4 +1,5 @@
 import { ref, onMounted } from 'vue';
+import { useApiCall } from './useApiCall';
 import tvMazeClient from '../api-clients/tvmaze';
 import {
   SearchResult,
@@ -9,63 +10,27 @@ import {
 import debounce from 'debounce';
 
 export function useShowInfo(showId: number) {
-  const isFetching = ref(false);
-  const error = ref(false);
-  const tvShow = ref<TvShow | null>(null);
+  const { isFetching, error, value } = useApiCall<TvShow>(() =>
+    tvMazeClient.getShowInfo(showId)
+  );
 
-  onMounted(async () => {
-    isFetching.value = true;
-    try {
-      tvShow.value = await tvMazeClient.getShowInfo(showId);
-      error.value = false;
-    } catch {
-      error.value = true;
-    } finally {
-      isFetching.value = false;
-    }
-  });
-
-  return { isFetching, error, tvShow };
+  return { isFetching, error, tvShow: value };
 }
 
 export function useSeasons(showId: number) {
-  const isFetching = ref(false);
-  const error = ref(false);
-  const seasons = ref(<Season[]>[]);
+  const { isFetching, error, value } = useApiCall<Season[]>(() =>
+    tvMazeClient.getShowSeasons(showId)
+  );
 
-  onMounted(async () => {
-    isFetching.value = true;
-    try {
-      seasons.value = await tvMazeClient.getShowSeasons(showId);
-      error.value = false;
-    } catch {
-      error.value = true;
-    } finally {
-      isFetching.value = false;
-    }
-  });
-
-  return { isFetching, error, seasons };
+  return { isFetching, error, seasons: value };
 }
 
 export function useEpisodes(showId: number) {
-  const isFetching = ref(false);
-  const error = ref(false);
-  const episodes = ref(<Episode[]>[]);
+  const { isFetching, error, value } = useApiCall<Episode[]>(() =>
+    tvMazeClient.getShowEpisodes(showId)
+  );
 
-  onMounted(async () => {
-    isFetching.value = true;
-    try {
-      episodes.value = await tvMazeClient.getShowEpisodes(showId);
-      error.value = false;
-    } catch {
-      error.value = true;
-    } finally {
-      isFetching.value = false;
-    }
-  });
-
-  return { isFetching, error, episodes };
+  return { isFetching, error, episodes: value };
 }
 
 export function useSearch() {

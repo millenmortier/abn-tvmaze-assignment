@@ -3,6 +3,7 @@
     <slot></slot>
   </div>
 </template>
+
 <style module>
 .root {
   width: 100%;

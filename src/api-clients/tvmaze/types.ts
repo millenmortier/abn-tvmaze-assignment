@@ -34,13 +34,13 @@ export interface TvShow {
   schedule: {
     time: string;
     days: string[];
-  };
+  } | null;
   rating: { average: number };
-  weight: number;
+  weight: number | null;
   network: Network | null;
   webChannel: WebChannel | null;
   dvdCountry: null;
-  externals: { tvrage: number; thetvdb: number; imdb: string };
+  externals: { tvrage: number; thetvdb: number; imdb: string } | null;
   image: {
     medium: string;
     original: string;
@@ -51,7 +51,7 @@ export interface TvShow {
     self: { href: string };
     previousepisode: { href: string };
     nextepisode?: { href: string };
-  };
+  } | null;
 }
 
 export interface SearchResult {

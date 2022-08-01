@@ -6,7 +6,7 @@ The entire application consists of a (very tiny) back-end, and a front-end.
 
 ### Prerequisites
 
-Please make sure you have node version 14 or higher installed on your machine.
+- Node version 14 or higher
 
 ### Step 1: Running the back-end
 
@@ -18,6 +18,9 @@ Please make sure you have node version 14 or higher installed on your machine.
 
 - `cd frontend`
 - `npm i`
+- (Make sure the `VITE_ABN_TVMAZE_PROXY_BASE_URL` variable in `frontend/.env`
+  points to the correct back-end URL; if you don't change the defaults, it will
+  be fine)
 - `npm run dev`: runs a dev server with Vite
 
 ## Background
@@ -49,8 +52,8 @@ Please make sure you have node version 14 or higher installed on your machine.
 
 #### Tech stack
 
-Main web framework: Vue (because ABN)
-Type of app: SPA
+- Main web framework: Vue, as per requested
+- Type of app: SPA
 
 #### Project setup, tooling, scaffolding
 

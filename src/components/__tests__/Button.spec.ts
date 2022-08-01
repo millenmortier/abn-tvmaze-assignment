@@ -2,13 +2,11 @@ import { render } from '@testing-library/vue';
 import Button from '../Button.vue';
 
 describe('Button', () => {
-  it(`should render the title props as it's title prop`, () => {
-    const title = 'Hello';
-
+  it(`should render its slots`, () => {
     const button = render(Button, {
-      props: { title },
+      slots: { default: 'Hello' },
     });
 
-    button.getByText(title);
+    button.getByText('Hello');
   });
 });

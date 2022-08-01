@@ -1,6 +1,5 @@
 <script setup lang="ts">
-defineProps<{ active: boolean; href: string }>();
-defineEmits<{}>();
+defineProps<{ active?: boolean; href: string }>();
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   modelValue: string;
-  large: boolean;
+  large?: boolean;
 }>();
 </script>
 

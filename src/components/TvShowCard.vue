@@ -9,10 +9,6 @@ defineProps<{
 <template>
   <div :class="$style.root">
     <img :src="tvShow.image.medium" :class="$style.thumbnail" />
-
-    <!-- <div :class="$style.bottom">
-      <div>{{ tvShow.name }}</div>
-    </div> -->
   </div>
 </template>
 

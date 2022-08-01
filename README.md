@@ -1,6 +1,28 @@
-# Background
+# ABN TVMaze Assignment
 
-## Notes from the assignment description
+## Installation and setup
+
+The entire application consists of a (very tiny) back-end, and a front-end.
+
+### Prerequisites
+
+Please make sure you have node version 14 or higher installed on your machine.
+
+### Step 1: Running the back-end
+
+- `cd backend`
+- `npm i`
+- `npm run dev`: should start the server on `http://localhost:9088` by default
+
+### Step 2: Running the front-end
+
+- `cd frontend`
+- `npm i`
+- `npm run dev`: runs a dev server with Vite
+
+## Background
+
+### Notes from the assignment description
 
 - Use any frameworks of your choice
 - Application must be responsive and mobile friendly
@@ -23,14 +45,14 @@
 - The user should be able to search for a TV show to get the details
 - You can design your own UI which fits the requirements
 
-# Decisions and reasonings
+### Decisions and reasonings
 
-## Tech stack
+#### Tech stack
 
 Main web framework: Vue (because ABN)
 Type of app: SPA
 
-## Project setup, tooling, scaffolding
+#### Project setup, tooling, scaffolding
 
 First of all, things we certainly want in our project setup:
 
@@ -39,11 +61,11 @@ First of all, things we certainly want in our project setup:
 - ESLint w/ TS and Vue support
 - Prettier
 - Unit testing
-  - Jest vs. Vitest: Jest (because Vitest doesn't have a major release)
+  - Jest vs. Vitest: Jest (because Vitest doesn't seem have a major release)
 - a dev server (npm run start, watch, or dev)
 - production build (npm run build)
 
-### Initial setup
+#### Initial setup
 
 For setting up a new Vue project, we have the following options as starting points:
 
@@ -81,22 +103,25 @@ After our setup with Vite + the vue-ts template. We still need to add ESLint, Pr
   - Set up `.eslintrc.js`
 - Installing Jest + Vue support
   - `npm i -D jest @vue/vue3-jest @testing-library/vue jest-environment-jsdom`
-- Installing an E2E testing framework
-  - `npm i -D cypress`
 - Setting up some basic git hooks/actions on commit (with Husky)
   - install and set up Husky
   - install `lint-staged`: to make sure we don't commit files that don't pass linter rules ()
   - install `commitlint` + conventional commits: so we lint on commit messages as well, and all commit messages adhere to
     the same format
 
-## Styling
+#### Styling
 
-- Library
-  - Tailwind?
+Options:
+
+- Tailwind
 - Custom
   - SCSS, CSS Modules, PostCSS
 
-# Other decisions
+To keep in line with "keeping things as minimal as possible", we write all CSS
+from stratch (no CSS frameworks, or utility class libraries). We use CSS modules
+for scalability and avoiding naming conflicts.
+
+#### Other
 
 Design: "simple yet eye-catching"; something with a purple brand color
 
@@ -107,12 +132,4 @@ Design: "simple yet eye-catching"; something with a purple brand color
     - Mid: #64748b
     - Lightest: #f8fbfe
 - Typography
-
-  - Body text
-  - Intro text
-  - Headings 1-6
-  - Label
-
-- CI/CD
-- Deploymeny
-  - Azure (because ABN)
+  - Lato

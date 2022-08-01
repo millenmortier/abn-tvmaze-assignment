@@ -31,7 +31,7 @@ watch(searchText, async () => {
         <p>{{ searchResults.length }} results found:</p>
 
         <RouterLink
-          v-for="{ score, show } in searchResults"
+          v-for="{ show } in searchResults"
           :key="show.id"
           :to="`/detail/${show.id}`"
           :class="$style.link"

@@ -1,6 +1,6 @@
-import { readFile } from "fs/promises";
-import { TvShow } from "./types";
-import { dataLocation } from "./config";
+import { readFile } from 'fs/promises';
+import { TvShow } from './types';
+import { dataLocation } from './config';
 
 interface GenreMap {
   [genre: string]: TvShow[];
@@ -30,7 +30,7 @@ export default async function getGenreTvShows() {
   if (genreTvShows) {
     return genreTvShows;
   } else {
-    const allShows = JSON.parse(await readFile(dataLocation, "utf-8"));
+    const allShows = JSON.parse(await readFile(dataLocation, 'utf-8'));
     const genreMap = mapShowsToGenre(allShows);
     genreTvShows = Object.keys(genreMap).map((genre) => ({
       genre,

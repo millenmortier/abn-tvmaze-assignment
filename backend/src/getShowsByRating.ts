@@ -1,6 +1,6 @@
-import { readFile } from "fs/promises";
-import { TvShow } from "./types";
-import { dataLocation } from "./config";
+import { readFile } from 'fs/promises';
+import { TvShow } from './types';
+import { dataLocation } from './config';
 
 let sortedShows: TvShow[] | null = null;
 
@@ -20,7 +20,7 @@ export default async function getShowsByRating() {
   if (sortedShows) {
     return sortedShows.slice(0, responseLimit);
   } else {
-    const allShows = JSON.parse(await readFile(dataLocation, "utf-8"));
+    const allShows = JSON.parse(await readFile(dataLocation, 'utf-8'));
     sortedShows = sortShows(allShows);
     return sortedShows?.slice(0, responseLimit);
   }

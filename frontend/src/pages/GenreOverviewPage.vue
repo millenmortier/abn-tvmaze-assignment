@@ -5,6 +5,7 @@ import TvShowCard from '../components/TvShowCard.vue';
 import CtaCard from '../components/CtaCard.vue';
 import { useGenreOverview } from '../composables/abn-tvmaze-proxy';
 import HScrollContainerPadding from '../layouts/HScrollContainerPadding.vue';
+import LoadingIndicator from '../components/LoadingIndicator.vue';
 
 const { isFetching, genreOverview } = useGenreOverview();
 </script>
@@ -14,7 +15,9 @@ const { isFetching, genreOverview } = useGenreOverview();
     <h1>Shows by genre</h1>
   </Container>
 
-  <template v-if="isFetching"> Loading... </template>
+  <template v-if="isFetching"
+    ><LoadingIndicator :class="$style.loading" />
+  </template>
   <template v-else>
     <div v-for="{ genre, tvShows } in genreOverview" :key="genre">
       <Container>
@@ -41,6 +44,10 @@ const { isFetching, genreOverview } = useGenreOverview();
 </template>
 
 <style module>
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+}
 .genre {
   margin-bottom: 0;
 }

@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <div :class="$style.root">
-    <img :src="tvShow.image.medium" :class="$style.thumbnail" />
+    <img :src="tvShow.image?.medium" :class="$style.thumbnail" />
   </div>
 </template>
 
